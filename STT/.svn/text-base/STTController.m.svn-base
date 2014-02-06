@@ -1,0 +1,127 @@
+//
+//  STTController.m
+//  WhiteLabelCartCheckout
+//
+//  Created by Abdul, Karim (Contractor) on 7/19/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "STTController.h"
+#import "STTModel.h"
+#include <stdio.h>
+
+@implementation STTController
+
+@synthesize audioRecorder, STTControllerdelegate;
+
+- (id)init {
+    
+    self = [super init]; 
+    if (self) {
+        self.STTControllerdelegate = self;
+        
+//        recordEncoding = ENC_PCM;
+//        self.audioRecorder.delegate = self;
+        
+    }
+    return self;
+}
+
+
+- (void)startRecording {
+    
+    DLog(@"startRecording");
+    
+    // Init audio with record capability
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryRecord error:nil];
+
+    //Setup RecordSetting
+    NSMutableDictionary* recordSetting = [[NSMutableDictionary alloc] init];
+    [recordSetting setValue :[NSNumber numberWithInt:kAudioFormatLinearPCM] forKey:AVFormatIDKey];
+    [recordSetting setValue:[NSNumber numberWithFloat:16000.0] forKey:AVSampleRateKey]; 
+    [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey]; 
+
+    //Setup File Names
+    NSString *fileName = @"newRecordTest.wav";
+    
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [STTModel applicationDocumentDirectory],fileName]];
+    NSError *error = nil;
+    
+    DLog(@"url %@", url);
+    
+    
+    
+    if (!audioRecorder) {
+            
+        self.audioRecorder = [[ AVAudioRecorder alloc] initWithURL:url settings:recordSetting error:&error];
+        self.audioRecorder.delegate = self;
+    }
+    
+    if ([audioRecorder isRecording]) {
+        return;
+    }
+    
+    if ([audioRecorder prepareToRecord] == YES){
+        [audioRecorder recordForDuration:10];
+        DLog(@"recording");
+    }
+    
+    else {
+        int errorCode = CFSwapInt32HostToBig ([error code]); 
+        DLog(@"Error: %@ [%4.4s])" , [error localizedDescription], (char*)&errorCode); 
+        
+    }
+    
+}
+
+- (void)stopRecording {
+    
+    DLog(@"stopRecording");
+    [audioRecorder stop];
+    DLog(@"stopped");
+//    [STTModel convertWaveToFlac:@"newRecordTest.wav" :@"newRecordTest.flac"];
+//    [STTModel STTFromGoogle:[NSString stringWithFormat:@"newRecordTest.flac"]];
+    
+}
+
+- (void)playRecording {
+    
+    DLog(@"playRecording");
+    // Init audio with playback capability
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    //NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/newRecordTest.wav", [[NSBundle mainBundle] resourcePath]]];
+    NSString *fileName = @"newRecordTest.wav";
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [STTModel applicationDocumentDirectory],fileName]];
+    
+    NSError *error;
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    audioPlayer.numberOfLoops = 0;
+    [audioPlayer play];
+    DLog(@"playing");
+}
+
+- (void)stopPlaying {
+    
+    DLog(@"stopPlaying");
+    DLog(@"%@ folderPath",[STTModel applicationDocumentDirectory]);
+    [audioPlayer stop];
+    DLog(@"stopped");
+    
+}
+
+- (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
+
+    DLog(@"%d",flag);
+    if (flag) {
+        
+        [STTModel convertWaveToFlac:@"newRecordTest.wav" :@"newRecordTest.flac"];
+        NSDictionary *conversionCompleted = [STTModel STTFromGoogle:[NSURL URLWithString:@"newRecordTest.flac"]];
+        [STTControllerdelegate audioRecordingCompleted:conversionCompleted];
+    }
+}
+
+
+@end

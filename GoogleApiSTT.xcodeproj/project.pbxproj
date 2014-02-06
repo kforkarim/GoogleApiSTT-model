@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B265F0E017C44EAC006A177B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B265F0DF17C44EAC006A177B /* UIKit.framework */; };
+		B265F0E217C44EAC006A177B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B265F0E117C44EAC006A177B /* Foundation.framework */; };
+		B265F0E417C44EAC006A177B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B265F0E317C44EAC006A177B /* CoreGraphics.framework */; };
+		B265F0EA17C44EAC006A177B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B265F0E817C44EAC006A177B /* InfoPlist.strings */; };
+		B265F0EC17C44EAC006A177B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B265F0EB17C44EAC006A177B /* main.m */; };
+		B265F0F017C44EAC006A177B /* testAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B265F0EF17C44EAC006A177B /* testAppDelegate.m */; };
+		B265F0F217C44EAC006A177B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B265F0F117C44EAC006A177B /* Default.png */; };
+		B265F0F417C44EAC006A177B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B265F0F317C44EAC006A177B /* Default@2x.png */; };
+		B265F0F617C44EAC006A177B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B265F0F517C44EAC006A177B /* Default-568h@2x.png */; };
+		B265F0F917C44EAC006A177B /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B265F0F717C44EAC006A177B /* MainStoryboard_iPhone.storyboard */; };
+		B265F0FC17C44EAC006A177B /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B265F0FA17C44EAC006A177B /* MainStoryboard_iPad.storyboard */; };
+		B265F0FF17C44EAC006A177B /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B265F0FE17C44EAC006A177B /* testViewController.m */; };
+		B265F10717C44EAC006A177B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B265F10617C44EAC006A177B /* SenTestingKit.framework */; };
+		B265F10817C44EAC006A177B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B265F0DF17C44EAC006A177B /* UIKit.framework */; };
+		B265F10917C44EAC006A177B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B265F0E117C44EAC006A177B /* Foundation.framework */; };
+		B265F11117C44EAC006A177B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B265F10F17C44EAC006A177B /* InfoPlist.strings */; };
+		B265F11417C44EAC006A177B /* GoogleApiSTTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B265F11317C44EAC006A177B /* GoogleApiSTTTests.m */; };
+		B265F12917C44ECD006A177B /* libFLAC_bundled.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B265F12817C44ECD006A177B /* libFLAC_bundled.a */; };
+		B265F13217C44F04006A177B /* STTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B265F12E17C44F04006A177B /* STTModel.m */; };
+		B265F13717C44FB5006A177B /* wav_to_flac.c in Sources */ = {isa = PBXBuildFile; fileRef = B265F13517C44FB5006A177B /* wav_to_flac.c */; };
+		B265F13917C457AF006A177B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B265F13817C457AF006A177B /* AVFoundation.framework */; };
+		D8197F2C17CD51D100807A4B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8197F2B17CD51D100807A4B /* AudioToolbox.framework */; };
+		D8197F2E17CD51E100807A4B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8197F2D17CD51E100807A4B /* Security.framework */; };
+		D8197F3017CD51EF00807A4B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8197F2F17CD51EF00807A4B /* CFNetwork.framework */; };
+		D8197F3217CD51FD00807A4B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8197F3117CD51FD00807A4B /* SystemConfiguration.framework */; };
+		D863336F18A4475A00088DCC /* test.wav in Resources */ = {isa = PBXBuildFile; fileRef = D863336E18A4475A00088DCC /* test.wav */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B265F10A17C44EAC006A177B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B265F0D417C44EAC006A177B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B265F0DB17C44EAC006A177B;
+			remoteInfo = GoogleApiSTT;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B265F0DC17C44EAC006A177B /* GoogleApiSTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleApiSTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B265F0DF17C44EAC006A177B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B265F0E117C44EAC006A177B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B265F0E317C44EAC006A177B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B265F0E717C44EAC006A177B /* GoogleApiSTT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleApiSTT-Info.plist"; sourceTree = "<group>"; };
+		B265F0E917C44EAC006A177B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B265F0EB17C44EAC006A177B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B265F0ED17C44EAC006A177B /* GoogleApiSTT-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoogleApiSTT-Prefix.pch"; sourceTree = "<group>"; };
+		B265F0EE17C44EAC006A177B /* testAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testAppDelegate.h; sourceTree = "<group>"; };
+		B265F0EF17C44EAC006A177B /* testAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testAppDelegate.m; sourceTree = "<group>"; };
+		B265F0F117C44EAC006A177B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		B265F0F317C44EAC006A177B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		B265F0F517C44EAC006A177B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B265F0F817C44EAC006A177B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		B265F0FB17C44EAC006A177B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		B265F0FD17C44EAC006A177B /* testViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
+		B265F0FE17C44EAC006A177B /* testViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
+		B265F10517C44EAC006A177B /* GoogleApiSTTTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleApiSTTTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B265F10617C44EAC006A177B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B265F10E17C44EAC006A177B /* GoogleApiSTTTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleApiSTTTests-Info.plist"; sourceTree = "<group>"; };
+		B265F11017C44EAC006A177B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B265F11217C44EAC006A177B /* GoogleApiSTTTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleApiSTTTests.h; sourceTree = "<group>"; };
+		B265F11317C44EAC006A177B /* GoogleApiSTTTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoogleApiSTTTests.m; sourceTree = "<group>"; };
+		B265F11F17C44ECD006A177B /* all.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = all.h; sourceTree = "<group>"; };
+		B265F12017C44ECD006A177B /* assert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = assert.h; sourceTree = "<group>"; };
+		B265F12117C44ECD006A177B /* callback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = callback.h; sourceTree = "<group>"; };
+		B265F12217C44ECD006A177B /* export.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = export.h; sourceTree = "<group>"; };
+		B265F12317C44ECD006A177B /* format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = format.h; sourceTree = "<group>"; };
+		B265F12417C44ECD006A177B /* metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metadata.h; sourceTree = "<group>"; };
+		B265F12517C44ECD006A177B /* ordinals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ordinals.h; sourceTree = "<group>"; };
+		B265F12617C44ECD006A177B /* stream_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stream_decoder.h; sourceTree = "<group>"; };
+		B265F12717C44ECD006A177B /* stream_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stream_encoder.h; sourceTree = "<group>"; };
+		B265F12817C44ECD006A177B /* libFLAC_bundled.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFLAC_bundled.a; sourceTree = "<group>"; };
+		B265F12D17C44F04006A177B /* STTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STTModel.h; sourceTree = "<group>"; };
+		B265F12E17C44F04006A177B /* STTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STTModel.m; sourceTree = "<group>"; };
+		B265F13517C44FB5006A177B /* wav_to_flac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wav_to_flac.c; sourceTree = "<group>"; };
+		B265F13617C44FB5006A177B /* wav_to_flac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wav_to_flac.h; sourceTree = "<group>"; };
+		B265F13817C457AF006A177B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D8197F2B17CD51D100807A4B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D8197F2D17CD51E100807A4B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D8197F2F17CD51EF00807A4B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D8197F3117CD51FD00807A4B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D863336E18A4475A00088DCC /* test.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = test.wav; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B265F0D917C44EAC006A177B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8197F3217CD51FD00807A4B /* SystemConfiguration.framework in Frameworks */,
+				D8197F3017CD51EF00807A4B /* CFNetwork.framework in Frameworks */,
+				D8197F2E17CD51E100807A4B /* Security.framework in Frameworks */,
+				D8197F2C17CD51D100807A4B /* AudioToolbox.framework in Frameworks */,
+				B265F13917C457AF006A177B /* AVFoundation.framework in Frameworks */,
+				B265F0E017C44EAC006A177B /* UIKit.framework in Frameworks */,
+				B265F0E217C44EAC006A177B /* Foundation.framework in Frameworks */,
+				B265F0E417C44EAC006A177B /* CoreGraphics.framework in Frameworks */,
+				B265F12917C44ECD006A177B /* libFLAC_bundled.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B265F10117C44EAC006A177B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B265F10717C44EAC006A177B /* SenTestingKit.framework in Frameworks */,
+				B265F10817C44EAC006A177B /* UIKit.framework in Frameworks */,
+				B265F10917C44EAC006A177B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B265F0D317C44EAC006A177B = {
+			isa = PBXGroup;
+			children = (
+				D863336D18A4475A00088DCC /* Resources */,
+				B265F13417C44FB5006A177B /* Wave_To_Flac */,
+				B265F11D17C44ECD006A177B /* libFLAC */,
+				B265F12A17C44F04006A177B /* STT */,
+				B265F0E517C44EAC006A177B /* GoogleApiSTT */,
+				B265F10C17C44EAC006A177B /* GoogleApiSTTTests */,
+				B265F0DE17C44EAC006A177B /* Frameworks */,
+				B265F0DD17C44EAC006A177B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B265F0DD17C44EAC006A177B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B265F0DC17C44EAC006A177B /* GoogleApiSTT.app */,
+				B265F10517C44EAC006A177B /* GoogleApiSTTTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B265F0DE17C44EAC006A177B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8197F3117CD51FD00807A4B /* SystemConfiguration.framework */,
+				D8197F2F17CD51EF00807A4B /* CFNetwork.framework */,
+				D8197F2D17CD51E100807A4B /* Security.framework */,
+				D8197F2B17CD51D100807A4B /* AudioToolbox.framework */,
+				B265F13817C457AF006A177B /* AVFoundation.framework */,
+				B265F0DF17C44EAC006A177B /* UIKit.framework */,
+				B265F0E117C44EAC006A177B /* Foundation.framework */,
+				B265F0E317C44EAC006A177B /* CoreGraphics.framework */,
+				B265F10617C44EAC006A177B /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B265F0E517C44EAC006A177B /* GoogleApiSTT */ = {
+			isa = PBXGroup;
+			children = (
+				B265F0EE17C44EAC006A177B /* testAppDelegate.h */,
+				B265F0EF17C44EAC006A177B /* testAppDelegate.m */,
+				B265F0F717C44EAC006A177B /* MainStoryboard_iPhone.storyboard */,
+				B265F0FA17C44EAC006A177B /* MainStoryboard_iPad.storyboard */,
+				B265F0FD17C44EAC006A177B /* testViewController.h */,
+				B265F0FE17C44EAC006A177B /* testViewController.m */,
+				B265F0E617C44EAC006A177B /* Supporting Files */,
+			);
+			path = GoogleApiSTT;
+			sourceTree = "<group>";
+		};
+		B265F0E617C44EAC006A177B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B265F0E717C44EAC006A177B /* GoogleApiSTT-Info.plist */,
+				B265F0E817C44EAC006A177B /* InfoPlist.strings */,
+				B265F0EB17C44EAC006A177B /* main.m */,
+				B265F0ED17C44EAC006A177B /* GoogleApiSTT-Prefix.pch */,
+				B265F0F117C44EAC006A177B /* Default.png */,
+				B265F0F317C44EAC006A177B /* Default@2x.png */,
+				B265F0F517C44EAC006A177B /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B265F10C17C44EAC006A177B /* GoogleApiSTTTests */ = {
+			isa = PBXGroup;
+			children = (
+				B265F11217C44EAC006A177B /* GoogleApiSTTTests.h */,
+				B265F11317C44EAC006A177B /* GoogleApiSTTTests.m */,
+				B265F10D17C44EAC006A177B /* Supporting Files */,
+			);
+			path = GoogleApiSTTTests;
+			sourceTree = "<group>";
+		};
+		B265F10D17C44EAC006A177B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B265F10E17C44EAC006A177B /* GoogleApiSTTTests-Info.plist */,
+				B265F10F17C44EAC006A177B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B265F11D17C44ECD006A177B /* libFLAC */ = {
+			isa = PBXGroup;
+			children = (
+				B265F11E17C44ECD006A177B /* FLAC */,
+				B265F12817C44ECD006A177B /* libFLAC_bundled.a */,
+			);
+			path = libFLAC;
+			sourceTree = "<group>";
+		};
+		B265F11E17C44ECD006A177B /* FLAC */ = {
+			isa = PBXGroup;
+			children = (
+				B265F11F17C44ECD006A177B /* all.h */,
+				B265F12017C44ECD006A177B /* assert.h */,
+				B265F12117C44ECD006A177B /* callback.h */,
+				B265F12217C44ECD006A177B /* export.h */,
+				B265F12317C44ECD006A177B /* format.h */,
+				B265F12417C44ECD006A177B /* metadata.h */,
+				B265F12517C44ECD006A177B /* ordinals.h */,
+				B265F12617C44ECD006A177B /* stream_decoder.h */,
+				B265F12717C44ECD006A177B /* stream_encoder.h */,
+			);
+			path = FLAC;
+			sourceTree = "<group>";
+		};
+		B265F12A17C44F04006A177B /* STT */ = {
+			isa = PBXGroup;
+			children = (
+				B265F12D17C44F04006A177B /* STTModel.h */,
+				B265F12E17C44F04006A177B /* STTModel.m */,
+			);
+			path = STT;
+			sourceTree = "<group>";
+		};
+		B265F13417C44FB5006A177B /* Wave_To_Flac */ = {
+			isa = PBXGroup;
+			children = (
+				B265F13617C44FB5006A177B /* wav_to_flac.h */,
+				B265F13517C44FB5006A177B /* wav_to_flac.c */,
+			);
+			path = Wave_To_Flac;
+			sourceTree = "<group>";
+		};
+		D863336D18A4475A00088DCC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D863336E18A4475A00088DCC /* test.wav */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B265F0DB17C44EAC006A177B /* GoogleApiSTT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B265F11717C44EAC006A177B /* Build configuration list for PBXNativeTarget "GoogleApiSTT" */;
+			buildPhases = (
+				B265F0D817C44EAC006A177B /* Sources */,
+				B265F0D917C44EAC006A177B /* Frameworks */,
+				B265F0DA17C44EAC006A177B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoogleApiSTT;
+			productName = GoogleApiSTT;
+			productReference = B265F0DC17C44EAC006A177B /* GoogleApiSTT.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B265F10417C44EAC006A177B /* GoogleApiSTTTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B265F11A17C44EAC006A177B /* Build configuration list for PBXNativeTarget "GoogleApiSTTTests" */;
+			buildPhases = (
+				B265F10017C44EAC006A177B /* Sources */,
+				B265F10117C44EAC006A177B /* Frameworks */,
+				B265F10217C44EAC006A177B /* Resources */,
+				B265F10317C44EAC006A177B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B265F10B17C44EAC006A177B /* PBXTargetDependency */,
+			);
+			name = GoogleApiSTTTests;
+			productName = GoogleApiSTTTests;
+			productReference = B265F10517C44EAC006A177B /* GoogleApiSTTTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B265F0D417C44EAC006A177B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = test;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Karim Abdul";
+				TargetAttributes = {
+					B265F0DB17C44EAC006A177B = {
+						DevelopmentTeam = DXK2N8YN8R;
+					};
+				};
+			};
+			buildConfigurationList = B265F0D717C44EAC006A177B /* Build configuration list for PBXProject "GoogleApiSTT" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B265F0D317C44EAC006A177B;
+			productRefGroup = B265F0DD17C44EAC006A177B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B265F0DB17C44EAC006A177B /* GoogleApiSTT */,
+				B265F10417C44EAC006A177B /* GoogleApiSTTTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B265F0DA17C44EAC006A177B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B265F0EA17C44EAC006A177B /* InfoPlist.strings in Resources */,
+				B265F0F217C44EAC006A177B /* Default.png in Resources */,
+				B265F0F417C44EAC006A177B /* Default@2x.png in Resources */,
+				B265F0F617C44EAC006A177B /* Default-568h@2x.png in Resources */,
+				D863336F18A4475A00088DCC /* test.wav in Resources */,
+				B265F0F917C44EAC006A177B /* MainStoryboard_iPhone.storyboard in Resources */,
+				B265F0FC17C44EAC006A177B /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B265F10217C44EAC006A177B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B265F11117C44EAC006A177B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B265F10317C44EAC006A177B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B265F0D817C44EAC006A177B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B265F0EC17C44EAC006A177B /* main.m in Sources */,
+				B265F0F017C44EAC006A177B /* testAppDelegate.m in Sources */,
+				B265F0FF17C44EAC006A177B /* testViewController.m in Sources */,
+				B265F13217C44F04006A177B /* STTModel.m in Sources */,
+				B265F13717C44FB5006A177B /* wav_to_flac.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B265F10017C44EAC006A177B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B265F11417C44EAC006A177B /* GoogleApiSTTTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B265F10B17C44EAC006A177B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B265F0DB17C44EAC006A177B /* GoogleApiSTT */;
+			targetProxy = B265F10A17C44EAC006A177B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B265F0E817C44EAC006A177B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B265F0E917C44EAC006A177B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B265F0F717C44EAC006A177B /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B265F0F817C44EAC006A177B /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		B265F0FA17C44EAC006A177B /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B265F0FB17C44EAC006A177B /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		B265F10F17C44EAC006A177B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B265F11017C44EAC006A177B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B265F11517C44EAC006A177B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B265F11617C44EAC006A177B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B265F11817C44EAC006A177B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GoogleApiSTT/GoogleApiSTT-Prefix.pch";
+				INFOPLIST_FILE = "GoogleApiSTT/GoogleApiSTT-Info.plist";
+				INSTALL_GROUP = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/libFLAC\"",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B265F11917C44EAC006A177B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GoogleApiSTT/GoogleApiSTT-Prefix.pch";
+				INFOPLIST_FILE = "GoogleApiSTT/GoogleApiSTT-Info.plist";
+				INSTALL_GROUP = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/libFLAC\"",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B265F11B17C44EAC006A177B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GoogleApiSTT.app/GoogleApiSTT";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GoogleApiSTT/GoogleApiSTT-Prefix.pch";
+				INFOPLIST_FILE = "GoogleApiSTTTests/GoogleApiSTTTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B265F11C17C44EAC006A177B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GoogleApiSTT.app/GoogleApiSTT";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GoogleApiSTT/GoogleApiSTT-Prefix.pch";
+				INFOPLIST_FILE = "GoogleApiSTTTests/GoogleApiSTTTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B265F0D717C44EAC006A177B /* Build configuration list for PBXProject "GoogleApiSTT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B265F11517C44EAC006A177B /* Debug */,
+				B265F11617C44EAC006A177B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B265F11717C44EAC006A177B /* Build configuration list for PBXNativeTarget "GoogleApiSTT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B265F11817C44EAC006A177B /* Debug */,
+				B265F11917C44EAC006A177B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B265F11A17C44EAC006A177B /* Build configuration list for PBXNativeTarget "GoogleApiSTTTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B265F11B17C44EAC006A177B /* Debug */,
+				B265F11C17C44EAC006A177B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B265F0D417C44EAC006A177B /* Project object */;
+}

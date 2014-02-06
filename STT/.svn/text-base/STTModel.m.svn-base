@@ -1,0 +1,140 @@
+//
+//  TTSModel.m
+//  WhiteLabelCartCheckout
+//
+//  Created by Abdul, Karim (Contractor) on 7/19/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "STTModel.h"
+#import "WLCC_ParseResponse.h"
+#include "wav_to_flac.h"
+
+//Url for Google Speech-To-Text Api.
+NSString *googleSTT = @"https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-US";
+//NSString *googleSTT = @"https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=ar";
+
+@implementation STTModel
+
++ (BOOL)convertWaveToFlac:(NSString*)inputWaveFile:(NSString*)outputFlacFile {
+    
+    //Input file
+    NSString *waveFile = [NSString stringWithFormat:@"%@/%@",[self applicationDocumentDirectory], inputWaveFile];
+    DLog(@"waveFile %@", waveFile);
+    //Output file
+    //Check if output File exists
+    if (![self fileExistsInDocumentFolder:outputFlacFile]) {
+        if ([self successfullyCreateNewFileInApplicationDirectory:outputFlacFile]) {
+            DLog(@"file created successfully");
+        }
+        
+        else {
+            return false;
+        }
+    }
+    
+    NSString *flacFile = [NSString stringWithFormat:@"%@/%@",[self applicationDocumentDirectory], outputFlacFile];
+    
+    
+    DLog(@"%@",[waveFile description]);
+    DLog(@"%@",[flacFile description]);
+    
+    const char *wave_file = [waveFile UTF8String];
+    const char *flac_file = [flacFile UTF8String];
+
+    int conversionResult = convertWavToFlac(wave_file, flac_file);
+    
+    DLog(@"%i",conversionResult);
+    
+    return conversionResult;
+    
+}
+
++ (NSDictionary*)STTFromGoogle:(NSString*)fileName {
+    
+    NSURL *url = [NSURL URLWithString:googleSTT];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *file_Path = [NSString stringWithFormat:@"%@/%@",[self applicationDocumentDirectory], fileName];
+    
+    NSData *myData = [NSData dataWithContentsOfFile:file_Path];
+
+    
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"audio/x-flac; rate=16000" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:myData];
+    [request setTimeoutInterval:20];
+ 
+    
+    NSURLResponse *response;
+    NSError *err;
+    NSData *responseData = [ NSURLConnection sendSynchronousRequest: request returningResponse:&response error:&err];
+    
+    NSDictionary *parsedData = [[NSDictionary alloc] initWithDictionary:[WLCC_ParseResponse jsonRequest:responseData :err]];
+    DLog(@"req: %@", [parsedData description]);
+    
+//    if (parsedData) {
+//        
+//        if ([[parsedData valueForKey:@"hypotheses"] count] != 0) {
+//           
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message from Google" message:[[[parsedData valueForKey:@"hypotheses"] objectAtIndex:0] valueForKey:@"utterance"] delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+//            [alert show];
+//        }
+//    }
+    
+    return parsedData;
+    
+}
+
++ (NSString*)applicationDocumentDirectory {
+    
+    NSArray *dirPaths;
+    NSString *docsDir;
+    
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, 
+                                                   NSUserDomainMask, YES);
+    
+    docsDir = [dirPaths objectAtIndex:0];
+    DLog(@"docs dir %@",docsDir);
+    return (NSString*)docsDir;
+    
+}
+
++ (BOOL)fileExistsInDocumentFolder:(NSString*)fileName {
+    
+    NSString *docFolder = (NSString*)[self applicationDocumentDirectory];
+    NSString *_fileName = [docFolder stringByAppendingPathComponent:(NSString*)fileName];
+    DLog(@"fileName %@", _fileName);
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:_fileName];
+    DLog(@"%d",fileExists);
+    return fileExists;
+}
+
++ (BOOL)successfullyCreateNewFileInApplicationDirectory:(NSString*)fileName {
+    
+    NSError *err;
+    
+    NSString *documentDirectory = [NSString stringWithFormat:@"%@/", [self applicationDocumentDirectory]];
+                                   
+    NSString *_fileName = [documentDirectory stringByAppendingFormat:fileName];
+                
+    DLog(@"_fileName %@", _fileName);
+    //Keep it empty.
+    NSString *dummyDataToWrite = @"";
+                                   
+    //Write to file
+    NSFileManager *fileMgr = [[NSFileManager alloc] init];
+    fileMgr.delegate = self;
+    
+    NSData *dataWithStr = [NSData dataWithContentsOfFile:dummyDataToWrite];
+    
+    BOOL fileResult = [fileMgr createFileAtPath:_fileName contents:dataWithStr attributes:nil];
+    
+    DLog(@"error %@",err);
+    DLog(@"fileResult %d",fileResult);
+    return fileResult;
+                       
+}
+
+@end
